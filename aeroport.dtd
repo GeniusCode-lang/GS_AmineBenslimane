@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aeroport [
+    <!ELEMENT aeroport (employes, pistes, compagnies, avions, vols)>
+
+    <!ELEMENT employes (employe+)>
+    <!ELEMENT employe (id, nom, prenom, age, poste)>
+    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT nom (#PCDATA)>
+    <!ELEMENT prenom (#PCDATA)>
+    <!ELEMENT age (#PCDATA)>
+    <!ELEMENT poste (#PCDATA)>
+
+    <!ELEMENT pistes (piste+)>
+    <!ELEMENT piste (numero, longueur, type)>
+    <!ELEMENT numero (#PCDATA)>
+    <!ELEMENT longueur (#PCDATA)>
+    <!ELEMENT type (#PCDATA)>
+
+    <!ELEMENT compagnies (compagnie+)>
+    <!ELEMENT compagnie (id, nom, codeIATA)>
+    <!ELEMENT codeIATA (#PCDATA)>
+
+    <!ELEMENT avions (avion+)>
+    <!ELEMENT avion (id, modele, capacite, compagnieId)>
+    <!ELEMENT modele (#PCDATA)>
+    <!ELEMENT capacite (#PCDATA)>
+    <!ELEMENT compagnieId (#PCDATA)>
+
+    <!ELEMENT vols (vol+)>
+    <!ELEMENT vol (numeroVol, date, heureDepart, heureArrivee, pisteNumero, avionId, piloteId)>
+    <!ELEMENT numeroVol (#PCDATA)>
+    <!ELEMENT date (#PCDATA)>
+    <!ELEMENT heureDepart (#PCDATA)>
+    <!ELEMENT heureArrivee (#PCDATA)>
+    <!ELEMENT pisteNumero (#PCDATA)>
+    <!ELEMENT avionId (#PCDATA)>
+    <!ELEMENT piloteId (#PCDATA)>
+]>

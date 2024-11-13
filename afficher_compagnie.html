@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affichage des Compagnies</title>
+</head>
+<body>
+
+<h1>Liste des compagnies</h1>
+<table id="compagniesTable">
+  <thead>
+  <tr>
+    <th>Identifiant</th>
+    <th>Nom</th>
+    <th>codeIATA</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Rows will be added here by JavaScript -->
+  </tbody>
+</table>
+
+<script>
+  async function fetchCompagnies() {
+    try {
+      const response = await fetch('aeroport.json');
+      if (!response.ok) throw new Error("Failed to fetch aeroport.json");
+      const data = await response.json();
+
+      displayCompagnies(data.compagnies);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
+  function displayCompagnies(compagnies) {
+    const tableBody = document.getElementById("compagniesTable").getElementsByTagName("tbody")[0];
+
+    compagnies.forEach(compagnie => {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+                    <td>${compagnie.id}</td>
+                    <td>${compagnie.nom}</td>
+                    <td>${compagnie.codeIATA}</td>
+                `;
+
+      tableBody.appendChild(row);
+    });
+  }
+
+  // Fetch and display products on page load
+  fetchCompagnies();
+</script>
+
+</body>
+</html>

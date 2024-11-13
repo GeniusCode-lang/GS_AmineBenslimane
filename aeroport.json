@@ -1,0 +1,79 @@
+{
+  "employes": [
+    {
+      "id": 1,
+      "nom": "Dupont",
+      "prenom": "Jean",
+      "age": 45,
+      "poste": "Pilote"
+    },
+    {
+      "id": 2,
+      "nom": "Martin",
+      "prenom": "Marie",
+      "age": 34,
+      "poste": "Agent de sécurité"
+    }
+  ],
+  "pistes": [
+    {
+      "numero": 1,
+      "longueur": 3000,
+      "type": "Asphalte"
+    },
+    {
+      "numero": 2,
+      "longueur": 3500,
+      "type": "Béton"
+    }
+  ],
+
+  "compagnies": [
+    {
+      "id": 101,
+      "nom": "Air France",
+      "codeIATA": "AF"
+    },
+    {
+      "id": 102,
+      "nom": "Lufthansa",
+      "codeIATA": "LH"
+    }
+  ],
+
+  "avions": [
+    {
+      "id": 1001,
+      "modele": "Airbus A320",
+      "capacite": 180,
+      "compagnieId": 101
+    },
+    {
+      "id": 1002,
+      "modele": "Boeing 737",
+      "capacite": 160,
+      "compagnieId": 102
+    }
+  ],
+
+  "vols": [
+    {
+      "numeroVol": "AF123",
+      "date": "2024-11-01",
+      "heureDepart": "10:00",
+      "heureArrivee": "14:00",
+      "pisteNumero": 1,
+      "avionId": 1001,
+      "piloteId": 1
+    },
+    {
+      "numeroVol": "LH456",
+      "date": "2024-11-02",
+      "heureDepart": "15:00",
+      "heureArrivee": "19:00",
+      "pisteNumero": 2,
+      "avionId": 1002,
+      "piloteId": 1
+    }
+  ]
+}

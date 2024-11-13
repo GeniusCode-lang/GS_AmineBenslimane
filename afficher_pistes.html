@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affichage des Pistes</title>
+</head>
+<body>
+
+<h1>Liste des pistes</h1>
+<table id="pistesTable">
+  <thead>
+  <tr>
+    <th>Numero</th>
+    <th>Longueur</th>
+    <th>Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Rows will be added here by JavaScript -->
+  </tbody>
+</table>
+
+<script>
+  async function fetchPistes() {
+    try {
+      const response = await fetch('aeroport.json');
+      if (!response.ok) throw new Error("Failed to fetch aeroport.json");
+      const data = await response.json();
+
+      displayPistes(data.pistes);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
+  function displayPistes(pistes) {
+    const tableBody = document.getElementById("pistesTable").getElementsByTagName("tbody")[0];
+
+    pistes.forEach(piste => {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+                    <td>${piste.numero}</td>
+                    <td>${piste.longueur}</td>
+                    <td>${piste.type}</td>
+                `;
+
+      tableBody.appendChild(row);
+    });
+  }
+
+  // Fetch and display products on page load
+  fetchPistes();
+</script>
+
+</body>
+</html>

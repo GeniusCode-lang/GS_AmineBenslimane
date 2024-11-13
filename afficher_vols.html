@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affichage des Vols</title>
+</head>
+<body>
+
+<h1>Liste des vols</h1>
+<table id="volsTable">
+  <thead>
+  <tr>
+    <th>Numero de Vol</th>
+    <th>Date</th>
+    <th>Heure de Depart</th>
+    <th>Heure Arrivee</th>
+    <th>Piste Numero</th>
+    <th>volId</th>
+    <th>Pilote Id</th>
+  
+    
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Rows will be added here by JavaScript -->
+  </tbody>
+</table>
+
+<script>
+  async function fetchVols() {
+    try {
+      const response = await fetch('aeroport.json');
+      if (!response.ok) throw new Error("Failed to fetch aeroport.json");
+      const data = await response.json();
+
+      displayVols(data.vols);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
+  function displayVols(vols) {
+    const tableBody = document.getElementById("volsTable").getElementsByTagName("tbody")[0];
+
+    vols.forEach(vol => {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+                    <td>${vol.numeroVol}</td>
+                    <td>${vol.date}</td>
+                    <td>${vol.heureDepart}</td>
+                    <td>${vol.heureArrivee}</td>
+                    <td>${vol.pisteNumero}</td>
+                    <td>${vol.avionId}</td>
+                    <td>${vol.piloteId}</td>
+               
+                `;
+
+      tableBody.appendChild(row);
+    });
+  }
+
+  // Fetch and display products on page load
+  fetchVols();
+</script>
+
+</body>
+</html>

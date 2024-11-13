@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<aeroport>
+    <employes>
+        <employe>
+            <id>1</id>
+            <nom>Dupont</nom>
+            <prenom>Jean</prenom>
+            <age>45</age>
+            <poste>Pilote</poste>
+        </employe>
+        <employe>
+            <id>2</id>
+            <nom>Martin</nom>
+            <prenom>Marie</prenom>
+            <age>34</age>
+            <poste>Agent de sécurité</poste>
+        </employe>
+        <!-- Ajouter d'autres employés ici -->
+    </employes>
+    
+    <pistes>
+        <piste>
+            <numero>1</numero>
+            <longueur>3000</longueur>
+            <type>Asphalte</type>
+        </piste>
+        <piste>
+            <numero>2</numero>
+            <longueur>3500</longueur>
+            <type>Béton</type>
+        </piste>
+        <!-- Ajouter d'autres pistes ici -->
+    </pistes>
+    
+    <compagnies>
+        <compagnie>
+            <id>101</id>
+            <nom>Air France</nom>
+            <codeIATA>AF</codeIATA>
+        </compagnie>
+        <compagnie>
+            <id>102</id>
+            <nom>Lufthansa</nom>
+            <codeIATA>LH</codeIATA>
+        </compagnie>
+        <!-- Ajouter d'autres compagnies ici -->
+    </compagnies>
+    
+    <avions>
+        <avion>
+            <id>1001</id>
+            <modele>Airbus A320</modele>
+            <capacite>180</capacite>
+            <compagnieId>101</compagnieId>
+        </avion>
+        <avion>
+            <id>1002</id>
+            <modele>Boeing 737</modele>
+            <capacite>160</capacite>
+            <compagnieId>102</compagnieId>
+        </avion>
+        <!-- Ajouter d'autres avions ici -->
+    </avions>
+    
+    <vols>
+        <vol>
+            <numeroVol>AF123</numeroVol>
+            <date>2024-11-01</date>
+            <heureDepart>10:00</heureDepart>
+            <heureArrivee>14:00</heureArrivee>
+            <pisteNumero>1</pisteNumero>
+            <avionId>1001</avionId>
+            <piloteId>1</piloteId>
+        </vol>
+        <vol>
+            <numeroVol>LH456</numeroVol>
+            <date>2024-11-02</date>
+            <heureDepart>15:00</heureDepart>
+            <heureArrivee>19:00</heureArrivee>
+            <pisteNumero>2</pisteNumero>
+            <avionId>1002</avionId>
+            <piloteId>1</piloteId>
+        </vol>
+        <!-- Ajouter d'autres vols ici -->
+    </vols>
+</aeroport>

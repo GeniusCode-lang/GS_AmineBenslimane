@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<vols>
+    <vol>
+        <dateHeure>2024-11-15T14:30</dateHeure>
+        <piste>12</piste>
+        <typeAvion>Airbus A320</typeAvion>
+    </vol>
+    <vol>
+        <dateHeure>2024-11-15T16:00</dateHeure>
+        <piste>8</piste>
+        <typeAvion>Boeing 737</typeAvion>
+    </vol>
+</vols>

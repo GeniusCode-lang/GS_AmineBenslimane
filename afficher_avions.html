@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affichage des Avions</title>
+</head>
+<body>
+
+<h1>Liste des avions</h1>
+<table id="avionsTable">
+  <thead>
+  <tr>
+    <th>Identifiant</th>
+    <th>Modele</th>
+    <th>capacite</th>
+    <th>avionId</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Rows will be added here by JavaScript -->
+  </tbody>
+</table>
+
+<script>
+  async function fetchAvions() {
+    try {
+      const response = await fetch('aeroport.json');
+      if (!response.ok) throw new Error("Failed to fetch aeroport.json");
+      const data = await response.json();
+
+      displayAvions(data.avions);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
+  function displayAvions(avions) {
+    const tableBody = document.getElementById("avionsTable").getElementsByTagName("tbody")[0];
+
+    avions.forEach(avion => {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+                    <td>${avion.id}</td>
+                    <td>${avion.modele}</td>
+                    <td>${avion.capacite}</td>
+                    <td>${avion.compagnieId}</td>
+                `;
+
+      tableBody.appendChild(row);
+    });
+  }
+
+  // Fetch and display products on page load
+  fetchAvions();
+</script>
+
+</body>
+</html>

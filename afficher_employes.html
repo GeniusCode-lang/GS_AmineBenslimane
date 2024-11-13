@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affichage des Employes</title>
+</head>
+<body>
+
+<h1>Liste des employes</h1>
+<table id="employesTable">
+  <thead>
+  <tr>
+    <th>Identifiant</th>
+    <th>Nom</th>
+    <th>prenom</th>
+    <th>age</th>
+    <th>poste</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Rows will be added here by JavaScript -->
+  </tbody>
+</table>
+
+<script>
+  async function fetchEmployes() {
+    try {
+      const response = await fetch('aeroport.json');
+      if (!response.ok) throw new Error("Failed to fetch aeroport.json");
+      const data = await response.json();
+
+      displayEmployes(data.employes);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
+  function displayEmployes(employes) {
+    const tableBody = document.getElementById("employesTable").getElementsByTagName("tbody")[0];
+
+    employes.forEach(employe => {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+                    <td>${employe.id}</td>
+                    <td>${employe.nom}</td>
+                    <td>${employe.prenom}</td>
+                    <td>${employe.age}</td>
+                    <td>${employe.poste}</td>
+                `;
+
+      tableBody.appendChild(row);
+    });
+  }
+
+  // Fetch and display products on page load
+  fetchEmployes();
+</script>
+
+</body>
+</html>
